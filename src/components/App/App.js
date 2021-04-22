@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import fetchCharacters from '../../api.js';
 import { getRandomIndex } from '../../utilities.js';
+import Quote from '../Quotes/Quotes.js'
 
 function App() {
   const [ characters, setCharacters ] = useState([]);
@@ -34,26 +35,20 @@ function App() {
   const getRandomQuote = () => {
     const randomIndex = getRandomIndex(quotes);
     setCurrentQuote(quotes[randomIndex]);
+    console.log(quotes);
   }
 
   useEffect( async () => {
     await getCharacters();
     await getQuotes();
-  }, [])
+  }, [quotes])
 
   return (
     <>
-      {error && console.log(error)}
+      {error && <h1>{error}</h1>}
+      <Quote currentQuote={currentQuote} getRandomQuote={getRandomQuote}/>
       {/* {console.log(characters[0])} */}
-      {/* {console.log(quotes)} */}
-      {/* {quotes.map((quote, i) => {
-          return <p key={i}>{quote}</p>
-        })} */}
-      <button onClick={() => getRandomQuote()}>Click me!</button>
-      {currentQuote && <h1>{currentQuote}</h1>}
-      {characters.map(character => {
-        return <p key={character.name}>{character.name}</p>
-      })}
+      {console.log(quotes)}
     </>
   );
 }
