@@ -33,15 +33,6 @@ function App() {
         }
       })
     })
-    // const allQuotes = characters.reduce((arr, character) => {
-    //   console.log(character)
-    //   character.quotes.forEach(quote => {
-    //     if (!arr.includes(character.quotes)) {
-    //       arr.push(quote)
-    //     }
-    //   })
-    // }, [])
-    // console.log(allQuotes)
     setQuotes(allQuotes)
   }
   
@@ -66,10 +57,8 @@ function App() {
     const correctAnswer = getCorrectAnswer()[0];
     const shuffledCharacters = shuffleCharacters(characters);
     const incorrectAnswers = getIncorrectAnswers(shuffledCharacters, correctAnswer);
-    console.log('right answer: ', correctAnswer)
-    // console.log('wrongAnswers: ', incorrectAnswers)
-    // console.log('all answers: ', [...incorrectAnswers, correctAnswer]);
     incorrectAnswers && setPossibleAnswers(() => [...incorrectAnswers, correctAnswer])
+    
   }
 
   useEffect(() => {
