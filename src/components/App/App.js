@@ -55,7 +55,7 @@ function App() {
   }
 
   const getIncorrectAnswers = (characters, rightAnswer) => {
-    characters.filter((character, i) => {
+    return characters.filter((character, i) => {
       if (character.name !== rightAnswer.name && i < 3) {
         return character
       }
@@ -66,26 +66,30 @@ function App() {
     const correctAnswer = getCorrectAnswer()[0];
     const shuffledCharacters = shuffleCharacters(characters);
     const incorrectAnswers = getIncorrectAnswers(shuffledCharacters, correctAnswer);
-    // console.log('right answer: ', correctAnswer)
+    console.log('right answer: ', correctAnswer)
     // console.log('wrongAnswers: ', incorrectAnswers)
     // console.log('all answers: ', [...incorrectAnswers, correctAnswer]);
     incorrectAnswers && setPossibleAnswers(() => [...incorrectAnswers, correctAnswer])
   }
 
-  useEffect( async () => {
-    await getCharacters();
+  useEffect(() => {
+    getCharacters();
   }, []);
 
-  useEffect( async () => {
-    await getQuotes();
+  useEffect(() => {
+    getQuotes();
   }, [!!characters.length])
+
+  useEffect( () => {
+    collectPossibleAnswers();
+  }, [currentQuote])
 
   return (
     <>
       {error && <h1>{error}</h1>}
       <Quote currentQuote={currentQuote} getRandomQuote={getRandomQuote}/>
-      {/* {console.log(possibleAnswers)} */}
-      {/* {!!possibleAnswers.length && <Answers possibleAnswers={possibleAnswers}/>} */}
+      {console.log('possible answers: ', shuffleCharacters(possibleAnswers))}
+      {!!possibleAnswers.length && <Answers possibleAnswers={possibleAnswers}/>}
     </>
   );
 }
