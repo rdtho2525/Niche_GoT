@@ -10,7 +10,9 @@ import { shuffleCharacters } from '../../utilities.js';
 function App() {
   const [ characters, setCharacters ] = useState([]);
   const [ quotes, setQuotes ] = useState([]);
+  const [ questions, setQuestions ] = useState([])
   const [ currentQuote, setCurrentQuote ] = useState('');
+  const [ correctAnswer, setCorrectAnswer ] = useState('');
   const [ possibleAnswers, setPossibleAnswers ] = useState([]);
   const [ error, setError ] = useState('');
 
@@ -24,16 +26,52 @@ function App() {
     }
   }
 
-  const getQuotes = () => {
-    const allQuotes = []
-    characters.forEach(character => {
-      character.quotes.forEach(quote => {
-        if (!allQuotes.includes(character.quotes)) {
-          allQuotes.push(quote)
-        }
+  //input: array of character objs
+  //output: question obj w/, { quote: '', answers[{value: '', isCorrect: t/f}]}
+  //reduce characters
+
+
+  // const getQuotes = () => {
+  //   const allQuotes = []
+  //   console.log(characters)
+  //   characters.forEach(character => {
+  //     character.quotes.forEach(quote => {
+  //       if (!allQuotes.includes(character.quotes)) {
+  //         allQuotes.push(quote)
+  //       }
+  //     })
+  //   })
+  //   setQuotes(allQuotes)
+  // }
+
+  const getIncorrectAnswers = (characters, rightAnswer) => {
+    return characters.reduce((arr, character, i) => {
+      let obj = {}
+      if (character.name !== rightAnswer.name && i < 3) {
+        character.isCorrect = false;
+        arr = [...arr, {answer: character.name, isCorrect: false}]
+      }
+      return arr;
+    }, [])
+  }
+  
+  
+  const getQuestions = () => { 
+    const questions = characters.reduce((arr, character, i) => {
+      character.quotes.forEach((quote) => {
+        if (character.quotes.includes(quote)) {
+          character.isCorrect = true;
+          var wrongAnswers = getIncorrectAnswers(characters, character)
+        } 
+        const possibleAnswers = [...wrongAnswers, {answer: character.name,   isCorrect: character.isCorrect}];
+        let question = {quote: quote, answers: possibleAnswers}
+        arr = [...arr, question]
       })
-    })
-    setQuotes(allQuotes)
+    
+      return arr;
+    }, []);
+
+    setQuestions(questions);
   }
   
   const getRandomQuote = () => {
@@ -41,44 +79,59 @@ function App() {
     setCurrentQuote(quotes[randomIndex]);
   }
 
-  const getCorrectAnswer = () => {
-    return characters.filter(character => character.quotes.includes(currentQuote))
-  }
+  // const getCorrectAnswer = () => {
+  //   return characters.filter(character => character.quotes.includes(currentQuote))
+  // }
 
-  const getIncorrectAnswers = (characters, rightAnswer) => {
-    return characters.filter((character, i) => {
-      if (character.name !== rightAnswer.name && i < 3) {
-        return character
-      }
-    })
-  }
+  // const getIncorrectAnswers = (characters, rightAnswer) => {
+  //   return characters.filter((character, i) => {
+  //     if (character.name !== rightAnswer.name && i < 3) {
+  //       return character
+  //     }
+  //   })
+  // }
 
-  const collectPossibleAnswers = () => {
-    const correctAnswer = getCorrectAnswer()[0];
-    const shuffledCharacters = shuffleCharacters(characters);
-    const incorrectAnswers = getIncorrectAnswers(shuffledCharacters, correctAnswer);
-    incorrectAnswers && setPossibleAnswers(() => [...incorrectAnswers, correctAnswer])
-    
-  }
+  // const collectPossibleAnswers = () => {
+  //   const thisAnswer = getCorrectAnswer()[0];
+  //   setCorrectAnswer(thisAnswer);
+  //   console.log(correctAnswer)
+  //   const shuffledCharacters = shuffleCharacters(characters);
+  //   const incorrectAnswers = getIncorrectAnswers(shuffledCharacters, thisAnswer);
+  //   const collectedAnswers = [...incorrectAnswers, correctAnswer];
+  //   // const test = collectedAnswers.forEach(answer => {
+  //   //   if (answer === correctAnswer) {
+  //   //     answer.isCorrect = true;
+  //   //   } else {
+  //   //     answer.isCorrect = false;
+  //   //   }
+  //   // });
+  //   collectedAnswers[0] !== undefined && setPossibleAnswers(collectedAnswers)
+  // }
 
   useEffect(() => {
     getCharacters();
   }, []);
 
-  useEffect(() => {
-    getQuotes();
-  }, [!!characters.length])
+  // useEffect(() => {
+  //   getQuotes();
+  // }, [!!characters.length])
 
-  useEffect( () => {
-    collectPossibleAnswers();
-  }, [currentQuote])
+  // useEffect( () => {
+  //   collectPossibleAnswers();
+  //   console.log('currentQuote:', currentQuote)
+  // }, [!!currentQuote])
+
+  useEffect(() => {
+    getQuestions()
+  }, [!!characters.length])
 
   return (
     <>
       {error && <h1>{error}</h1>}
       <Quote currentQuote={currentQuote} getRandomQuote={getRandomQuote}/>
-      {console.log('possible answers: ', shuffleCharacters(possibleAnswers))}
-      {!!possibleAnswers.length && <Answers possibleAnswers={possibleAnswers}/>}
+      {console.log(questions)}
+      {/* {console.log('possible answers: ', shuffleCharacters(possibleAnswers))} */}
+      {/* {!!possibleAnswers.length && <Answers possibleAnswers={possibleAnswers}/>} */}
     </>
   );
 }
