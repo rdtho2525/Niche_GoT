@@ -5,7 +5,7 @@ const Answers = ({ possibleAnswers }) => {
   const renderedAnswers = possibleAnswers.map((answer, i) => {
     if (possibleAnswers[0] !== undefined) {
       return (
-        <AnswerCard answer={answer.answer}/>
+        <AnswerCard key={`${answer}_${i}`} answer={answer.answer}/>
       )
     }
   })
