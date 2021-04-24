@@ -47,7 +47,7 @@ function App() {
           var wrongAnswers = getIncorrectAnswers(characters, character)
         } 
         const possibleAnswers = [...wrongAnswers, {answer: character.name,   isCorrect: character.isCorrect}];
-        let question = {quote: quote, answers: possibleAnswers}
+        let question = {quote: quote, answers: shuffleCharacters(possibleAnswers)}
         arr = [...arr, question]
       })
     
