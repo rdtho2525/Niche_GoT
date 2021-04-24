@@ -28,8 +28,7 @@ function App() {
   }
 
   const getIncorrectAnswers = (characters, rightAnswer) => {
-    return characters.reduce((arr, character, i) => {
-      // let obj = {}
+    return shuffleCharacters(characters).reduce((arr, character, i) => {
       if (character.name !== rightAnswer.name && i < 3) {
         character.isCorrect = false;
         arr = [...arr, {answer: character.name, isCorrect: false}]
