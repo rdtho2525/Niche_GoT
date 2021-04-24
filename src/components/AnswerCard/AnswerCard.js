@@ -1,9 +1,9 @@
 import React from 'react';
 
-const AnswerCard = ({ answer}) => {
+const AnswerCard = ({ answer }) => {
   
   return (
-    <p className="answer">{answer}</p>
+    <p key={answer} className="answer">{answer}</p>
   )
 }
 

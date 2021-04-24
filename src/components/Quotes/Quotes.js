@@ -2,18 +2,18 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 import './Quotes.css';
 
-const Quote = ({ currentQuote, getRandomQuote }) => {
+const Quote = ({ currentQuestion, getRandomQuestion }) => {
   
   return (
     <>
       <section className="quote-section">
         <div className="quote-container">
-          <h2>"{currentQuote && currentQuote}"</h2>
+          <h2>"{currentQuestion && currentQuestion.quote}"</h2>
         </div>
         <div className="button-container">
           <button>Save this quote?</button>
           <button onClick={() => {
-            getRandomQuote();
+            getRandomQuestion();
           }}>Next quote</button>
         </div>
       </section>
