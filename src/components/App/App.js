@@ -28,7 +28,8 @@ function App() {
   }
 
   const getIncorrectAnswers = (characters, rightAnswer) => {
-    return shuffleCharacters(characters).reduce((arr, character, i) => {
+    const wrongAnswers = shuffleCharacters(characters).filter(character => character.name !== rightAnswer.name)
+    return wrongAnswers.reduce((arr, character, i) => {
       if (character.name !== rightAnswer.name && i < 3) {
         character.isCorrect = false;
         arr = [...arr, {answer: character.name, isCorrect: false}]
@@ -61,6 +62,14 @@ function App() {
     setCurrentQuestion(questions[randomIndex]);
   }
 
+  const handleClick = (isCorrect) => {
+    if (isCorrect === true) {
+      console.log('nice!')
+    } else {
+      console.log('shoot!');
+    }
+  }
+
   useEffect(() => {
     getCharacters();
   }, []);
@@ -77,7 +86,7 @@ function App() {
       {/* {console.log(questions)} */}
       {/* {console.log('possible answers: ', shuffleCharacters(possibleAnswers))} */}
       {console.log(currentQuestion.answers)}
-      {!!currentQuestion.answers && <Answers possibleAnswers={currentQuestion.answers}/>}
+      {!!currentQuestion.answers && <Answers handleClick={handleClick} possibleAnswers={currentQuestion.answers}/>}
     </>
   );
 }
