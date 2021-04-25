@@ -9,12 +9,10 @@ import { shuffleCharacters } from '../../utilities.js';
 
 function App() {
   const [ characters, setCharacters ] = useState([]);
-  // const [ quotes, setQuotes ] = useState([]);
   const [ questions, setQuestions ] = useState([])
   const [ currentQuestion, setCurrentQuestion ] = useState('');
-  // const [ currentQuote, setCurrentQuote ] = useState('');
-  // const [ correctAnswer, setCorrectAnswer ] = useState('');
-  // const [ possibleAnswers, setPossibleAnswers ] = useState([]);
+  const [ feedback, setFeedback ] = useState('');
+  const [ validStatus, setValidStatus ] = useState('');
   const [ error, setError ] = useState('');
 
   const getCharacters = async () => {
@@ -59,14 +57,18 @@ function App() {
   
   const getRandomQuestion = () => {
     const randomIndex = getRandomIndex(questions);
+    setFeedback('');
+    setValidStatus('');
     setCurrentQuestion(questions[randomIndex]);
   }
 
-  const handleClick = (isCorrect) => {
+  const validateSelection = (isCorrect) => {
+    setValidStatus('validated');
+
     if (isCorrect === true) {
-      console.log('nice!')
+      setFeedback('Correct!')
     } else {
-      console.log('shoot!');
+      setFeedback('Incorrect!')
     }
   }
 
@@ -81,8 +83,9 @@ function App() {
   return (
     <main>
       {error && <h1>{error}</h1>}
-      <Quote currentQuestion={currentQuestion} getRandomQuestion={getRandomQuestion}/>
-      {!!currentQuestion.answers && <Answers handleClick={handleClick} possibleAnswers={currentQuestion.answers}/>}
+      <Quote currentQuestion={currentQuestion} validStatus={validStatus} getRandomQuestion={getRandomQuestion}/>
+      {feedback && <h2>{feedback}</h2>}
+      {!!currentQuestion.answers && <Answers validateSelection={validateSelection} validStatus={validStatus} possibleAnswers={currentQuestion.answers}/>}
     </main>
   );
 }
