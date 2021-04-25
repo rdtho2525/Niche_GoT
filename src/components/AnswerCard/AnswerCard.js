@@ -1,7 +1,11 @@
 import React, { useEffect, useState} from 'react';
 import './AnswerCard.css';
 
-const AnswerCard = ({ answer, id, validateSelection }) => {
+const AnswerCard = ({ 
+  answer, 
+  id, 
+  validateSelection 
+}) => {
   const [ selectedStatus, setSelectedStatus ] = useState('');
   
   const checkSelectedStatus = () => {
