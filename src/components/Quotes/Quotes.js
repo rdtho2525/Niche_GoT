@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import './Quotes.css';
 
 const Quote = ({ currentQuestion, getRandomQuestion }) => {
