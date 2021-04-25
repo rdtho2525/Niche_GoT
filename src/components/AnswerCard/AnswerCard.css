@@ -1,0 +1,16 @@
+.answer {
+  width: 95%;
+  border-radius: 15px;
+  padding: .75em;
+  font-size: 4vh;
+}
+
+.validated > .true {
+  background-color: green;
+  color: seashell;
+}
+
+.validated > .selected.false {
+  background-color: red;
+  color: seashell;
+}

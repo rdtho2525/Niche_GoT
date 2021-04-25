@@ -1,0 +1,18 @@
+* {
+  /* border: 1px solid red; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+#root,
+body,
+main {
+  height: 100%;
+}
+
+.feedback {
+  margin-top: 5px;
+  text-align: center;
+}

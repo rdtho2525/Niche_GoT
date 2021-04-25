@@ -1,54 +1,92 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import fetchCharacters from '../../api';
+import fetchCharacters from '../../api.js';
+import { getRandomIndex } from '../../utilities.js';
+import Quote from '../Quotes/Quotes.js'
+import Answers from '../Answers/Answers.js';
+import { shuffleCharacters } from '../../utilities.js';
+
 
 function App() {
   const [ characters, setCharacters ] = useState([]);
-  const [ quotes, setQuotes ] = useState([])
-  const [error, setError ] = useState('');
+  const [ questions, setQuestions ] = useState([]);
+  const [ currentQuestion, setCurrentQuestion ] = useState('');
+  const [ feedback, setFeedback ] = useState('');
+  const [ validStatus, setValidStatus ] = useState('');
+  const [ error, setError ] = useState('');
 
   const getCharacters = async () => {
     try {
       const allCharacters = await fetchCharacters();
-      setCharacters(allCharacters);
+      setCharacters(allCharacters)
     } catch(error) {
       setError(error);
       console.log(error)
     }
   }
 
-  const getQuotes= () => {
-    const arr = []
-    characters.forEach(character => {
-      character.quotes.forEach(quote => {
-        if (!arr.includes(character.quotes)) {
-          arr.push(quote)
-        }
-      })
-    })
-    setQuotes(arr)
+  const getIncorrectAnswers = (characters, rightAnswer) => {
+    const wrongAnswers = shuffleCharacters(characters).filter(character => character.name !== rightAnswer.name)
+    return wrongAnswers.reduce((arr, character, i) => {
+      if (character.name !== rightAnswer.name && i < 3) {
+        character.isCorrect = false;
+        arr = [...arr, {answer: character.name, isCorrect: false}]
+      }
+      return arr;
+    }, [])
   }
   
-  // const getRandomQuote = () => {
+  
+  const getQuestions = () => { 
+    const questions = characters.reduce((arr, character, i) => {
+      character.quotes.forEach((quote) => {
+        if (character.quotes.includes(quote)) {
+          character.isCorrect = true;
+          var wrongAnswers = getIncorrectAnswers(characters, character)
+        } 
+        const possibleAnswers = [...wrongAnswers, {answer: character.name,   isCorrect: character.isCorrect}];
+        let question = {quote: quote, answers: shuffleCharacters(possibleAnswers)}
+        arr = [...arr, question]
+      })
+    
+      return arr;
+    }, []);
 
-  // }
+    setQuestions(questions);
+  }
+  
+  const getRandomQuestion = () => {
+    const randomIndex = getRandomIndex(questions);
+    setFeedback('');
+    setValidStatus('');
+    setCurrentQuestion(questions[randomIndex]);
+  }
 
-  useEffect( async () => {
-    await getCharacters();
-    await getQuotes();
-  }, [])
+  const validateSelection = (isCorrect) => {
+    setValidStatus('validated');
+
+    if (isCorrect) {
+      setFeedback('Correct!')
+    } else {
+      setFeedback('Incorrect!')
+    }
+  }
+
+  useEffect(() => {
+    getCharacters();
+  }, []);
+
+  useEffect(() => {
+    getQuestions()
+  }, [!!characters.length])
+
   return (
-    <>
-      {error && console.log(error)}
-      {console.log(characters[0])}
-      {console.log(quotes)}
-      {quotes.map((quote, i) => {
-          return <p key={i}>{quote}</p>
-        })}
-      {characters.map(character => {
-        return <p key={character.name}>{character.name}</p>
-      })}
-    </>
+    <main>
+      {error && <h1 className="error-message">{error}</h1>}
+      <Quote currentQuestion={currentQuestion} validStatus={validStatus} getRandomQuestion={getRandomQuestion}/>
+      {feedback && <h2 className={'feedback'}>{feedback}</h2>}
+      {!!currentQuestion.answers && <Answers validateSelection={validateSelection} validStatus={validStatus} possibleAnswers={currentQuestion.answers}/>}
+    </main>
   );
 }
 
