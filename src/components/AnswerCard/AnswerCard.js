@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from 'react';
 import './AnswerCard.css';
 
-const AnswerCard = ({ answer, id, handleClick }) => {
+const AnswerCard = ({ answer, id, validateSelection }) => {
   const [ selectedStatus, setSelectedStatus ] = useState('');
   
   const checkSelectedStatus = () => {
@@ -17,7 +17,7 @@ const AnswerCard = ({ answer, id, handleClick }) => {
       key={id} 
       className={`answer ${selectedStatus} ${answer.isCorrect} `} 
       onClick={() => {
-      handleClick(answer.isCorrect)
+      validateSelection(answer.isCorrect)
       checkSelectedStatus();}}
       >
       {answer.answer}

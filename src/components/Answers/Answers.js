@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AnswerCard from '../AnswerCard/AnswerCard.js';
 import './Answers.css';
 
-const Answers = ({ possibleAnswers, handleClick, validStatus }) => {
+const Answers = ({ possibleAnswers, validateSelection, validStatus }) => {
 
   const changeClass = (event) => {
     validStatus ? validStatus = '' : validStatus = 'validated';
@@ -12,7 +12,7 @@ const Answers = ({ possibleAnswers, handleClick, validStatus }) => {
       return (
         <AnswerCard 
           id={`${answer.answer}_${i}`} 
-          handleClick={handleClick} 
+          validateSelection={validateSelection} 
           answer={answer}
         />
       )
