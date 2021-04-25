@@ -79,15 +79,11 @@ function App() {
   }, [!!characters.length])
 
   return (
-    <>
+    <main>
       {error && <h1>{error}</h1>}
-      {/* <Quote currentQuote={currentQuote} getRandomQuote={getRandomQuote}/> */}
       <Quote currentQuestion={currentQuestion} getRandomQuestion={getRandomQuestion}/>
-      {/* {console.log(questions)} */}
-      {/* {console.log('possible answers: ', shuffleCharacters(possibleAnswers))} */}
-      {console.log(currentQuestion.answers)}
       {!!currentQuestion.answers && <Answers handleClick={handleClick} possibleAnswers={currentQuestion.answers}/>}
-    </>
+    </main>
   );
 }
 
