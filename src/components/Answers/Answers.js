@@ -2,9 +2,13 @@ import React, { useState, useEffect } from 'react';
 import AnswerCard from '../AnswerCard/AnswerCard.js';
 import './Answers.css';
 
-const Answers = ({ possibleAnswers, validateSelection, validStatus }) => {
+const Answers = ({ 
+  possibleAnswers, 
+  validateSelection, 
+  validStatus 
+}) => {
 
-  const changeClass = (event) => {
+  const changeClass = () => {
     validStatus ? validStatus = '' : validStatus = 'validated';
   }
 
@@ -20,7 +24,7 @@ const Answers = ({ possibleAnswers, validateSelection, validStatus }) => {
 
   return (
     <section 
-      onClick={(event) => changeClass(event)} 
+      onClick={() => changeClass()} 
       className={`answer-section ${validStatus}`}
     >
       {renderedAnswers}
