@@ -1,21 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import './AnswerCard.css';
 
 const AnswerCard = ({ answer, id, handleClick }) => {
-  const [ buttonColor, setButtonColor ] = useState('');
+  const [ selectedStatus, setSelectedStatus ] = useState('');
   
-  const getColorScheme = () => {
-    answer.isCorrect ? setButtonColor('correct') : setButtonColor('incorrect')
+  const checkSelectedStatus = () => {
+   setSelectedStatus('selected')
   }
 
+  useEffect(() => {
+    setSelectedStatus('');
+  }, [answer])
+ 
   return (
     <button 
       key={id} 
-      className={`answer ${buttonColor}`} 
+      className={`answer ${selectedStatus} ${answer.isCorrect} `} 
       onClick={() => {
       handleClick(answer.isCorrect)
-      getColorScheme();
-    }}>
+      checkSelectedStatus();}}
+      >
       {answer.answer}
     </button>
   )
