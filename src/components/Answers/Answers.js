@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import AnswerCard from '../AnswerCard/AnswerCard.js';
 import './Answers.css';
 
-const Answers = ({ possibleAnswers, handleClick }) => {
+const Answers = ({ possibleAnswers, handleClick, validStatus }) => {
+
+  const changeClass = (event) => {
+    validStatus ? validStatus = '' : validStatus = 'validated';
+  }
+
   const renderedAnswers = possibleAnswers.map((answer, i) => {
       return (
         <AnswerCard 
-          className="yellow"
           id={`${answer.answer}_${i}`} 
           handleClick={handleClick} 
           answer={answer}
@@ -15,7 +19,10 @@ const Answers = ({ possibleAnswers, handleClick }) => {
   })
 
   return (
-    <section className="answer-section">
+    <section 
+      onClick={(event) => changeClass(event)} 
+      className={`answer-section ${validStatus}`}
+    >
       {renderedAnswers}
     </section>
   )
