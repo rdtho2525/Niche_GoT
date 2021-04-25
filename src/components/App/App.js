@@ -9,7 +9,7 @@ import { shuffleCharacters } from '../../utilities.js';
 
 function App() {
   const [ characters, setCharacters ] = useState([]);
-  const [ questions, setQuestions ] = useState([])
+  const [ questions, setQuestions ] = useState([]);
   const [ currentQuestion, setCurrentQuestion ] = useState('');
   const [ feedback, setFeedback ] = useState('');
   const [ validStatus, setValidStatus ] = useState('');
@@ -65,7 +65,7 @@ function App() {
   const validateSelection = (isCorrect) => {
     setValidStatus('validated');
 
-    if (isCorrect === true) {
+    if (isCorrect) {
       setFeedback('Correct!')
     } else {
       setFeedback('Incorrect!')
@@ -82,9 +82,9 @@ function App() {
 
   return (
     <main>
-      {error && <h1>{error}</h1>}
+      {error && <h1 className="error-message">{error}</h1>}
       <Quote currentQuestion={currentQuestion} validStatus={validStatus} getRandomQuestion={getRandomQuestion}/>
-      {feedback && <h2>{feedback}</h2>}
+      {feedback && <h2 className={'feedback'}>{feedback}</h2>}
       {!!currentQuestion.answers && <Answers validateSelection={validateSelection} validStatus={validStatus} possibleAnswers={currentQuestion.answers}/>}
     </main>
   );
