@@ -11,3 +11,8 @@ body,
 main {
   height: 100%;
 }
+
+.feedback {
+  margin-top: 5px;
+  text-align: center;
+}
