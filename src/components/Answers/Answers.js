@@ -1,21 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import AnswerCard from '../AnswerCard/AnswerCard.js';
+import './Answers.css';
 
-const Answers = ({ possibleAnswers }) => {
+const Answers = ({ possibleAnswers, handleClick }) => {
   const renderedAnswers = possibleAnswers.map((answer, i) => {
-    if (possibleAnswers[0] !== undefined) {
       return (
-        <AnswerCard key={`${answer}_${i}`} answer={answer.answer}/>
+        <AnswerCard 
+          className="yellow"
+          id={`${answer.answer}_${i}`} 
+          handleClick={handleClick} 
+          answer={answer}
+        />
       )
-    }
   })
 
   return (
-    <>
-      <section className="answer-section">
-        {renderedAnswers}
-      </section>
-    </>
+    <section className="answer-section">
+      {renderedAnswers}
+    </section>
   )
 }
 
