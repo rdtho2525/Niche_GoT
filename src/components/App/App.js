@@ -41,7 +41,6 @@ function App() {
     }, [])
   }
   
-  
   const getQuestions = () => { 
     const questions = characters.reduce((arr, character, i) => {
       character.quotes.forEach((quote) => {
@@ -113,7 +112,7 @@ function App() {
             render={() => <SavedQuote removeSavedQuote={removeSavedQuote} savedQuotes={savedQuotes}/>}
           />
           <Route 
-            exact path="/"
+            exact path="/trivia"
             render={() => (
               <>
                 <Quote 
@@ -123,13 +122,18 @@ function App() {
                   getRandomQuestion={getRandomQuestion}
                 />
                 {feedback && <h2 className={'feedback'}>{feedback}</h2>}
-                {!!currentQuestion.answers && <Answers validateSelection={validateSelection} validStatus={validStatus} possibleAnswers={currentQuestion.answers}/>}
+                {!!currentQuestion.answers && 
+                  <Answers 
+                    validateSelection={validateSelection} 
+                    validStatus={validStatus} 
+                    possibleAnswers={currentQuestion.answers}
+                  />}
               </>
             )}
           />
         </Switch>
     </main>
-    <Footer />
+    <Footer getRandomQuestion={getRandomQuestion} />
     </>
   );
 }
