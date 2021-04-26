@@ -5,6 +5,10 @@
   font-size: 4vh;
 }
 
+.validated > button {
+  pointer-events: none;
+}
+
 .validated > .true {
   background-color: green;
   color: seashell;
