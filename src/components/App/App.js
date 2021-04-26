@@ -4,8 +4,9 @@ import fetchCharacters from '../../api.js';
 import { getRandomIndex } from '../../utilities.js';
 import Quote from '../Quotes/Quotes.js'
 import Answers from '../Answers/Answers.js';
-import Footer from '../Footer/Footer.js'
-import SavedQuote from '../SavedQuote/SavedQuote.js'
+import Header from '../Header/Header.js';
+import Footer from '../Footer/Footer.js';
+import SavedQuote from '../SavedQuote/SavedQuote.js';
 import { Switch, Route } from 'react-router-dom';
 import { shuffleCharacters } from '../../utilities.js';
 
@@ -104,6 +105,7 @@ function App() {
 
   return (
     <>
+      <Header />
       <main>
         {error && <h1 className="error-message">{error}</h1>}
         <Switch>
@@ -112,7 +114,7 @@ function App() {
             render={() => <SavedQuote removeSavedQuote={removeSavedQuote} savedQuotes={savedQuotes}/>}
           />
           <Route 
-            exact path="/trivia"
+            exact path="/play"
             render={() => (
               <>
                 <Quote 
