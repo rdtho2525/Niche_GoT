@@ -1,3 +1,9 @@
+.saved-quote {
+  height: 25%;
+  margin-top: 12px;
+  padding: .75em .5em;
+}
+
 .remove-btn-container {
   width: 100%;
   display: flex;
