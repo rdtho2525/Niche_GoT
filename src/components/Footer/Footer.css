@@ -14,3 +14,8 @@ a {
   justify-content: center;
   text-align: center;
 }
+
+.saved-link {
+  margin-top: 6px;
+  line-height: 1.5em;
+}
