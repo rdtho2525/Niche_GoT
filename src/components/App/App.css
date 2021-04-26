@@ -7,9 +7,13 @@
 
 html,
 #root,
-body,
-main {
+body {
   height: 100%;
+}
+
+main {
+  height: 92%;
+  overflow: auto;
 }
 
 .feedback {
