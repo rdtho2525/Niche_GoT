@@ -1,0 +1,10 @@
+.remove-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.remove-button {
+  margin-right: 15px;
+  margin-bottom: 5px;
+}
