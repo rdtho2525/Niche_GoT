@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Quotes.css';
 
 const Quote = ({ currentQuestion, getRandomQuestion, saveCurrentQuote }) => {
+  const [ saveMessage, setSaveMessage ] = useState('Save this quote');
 
   return (
     <section className="quote-section">
