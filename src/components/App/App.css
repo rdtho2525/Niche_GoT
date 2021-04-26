@@ -12,8 +12,9 @@ body {
 }
 
 main {
-  height: 92%;
+  height: 76%;
   overflow: auto;
+  flex: 1 0 auto;
 }
 
 .feedback {
