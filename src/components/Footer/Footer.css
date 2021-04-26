@@ -1,8 +1,16 @@
 footer {
+  height: 10%;
   display: flex;
+  border-top: 2px solid black;
+  justify-content: space-around;
+  flex-shrink: 0;
 }
 
 a {
   height: 50px;
-  width: 50px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
