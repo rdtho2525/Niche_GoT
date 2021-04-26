@@ -8,7 +8,7 @@ const SavedQuote = ({ savedQuotes, removeSavedQuote }) => {
     const credit = quote.answers.filter(answer => answer.isCorrect)[0].answer
 
     return (
-      <section key={i} className="quote-section">
+      <section key={i} className="saved-quote">
         <h2>"{quote.quote}"</h2>
         <aside>{credit}</aside>
         <div className="remove-btn-container">
