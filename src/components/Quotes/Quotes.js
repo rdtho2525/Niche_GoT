@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Quotes.css';
 
-const Quote = ({ currentQuestion, getRandomQuestion }) => {
+const Quote = ({ currentQuestion, getRandomQuestion, saveCurrentQuote }) => {
   const [ saveMessage, setSaveMessage ] = useState('Save this quote');
 
   // const checkSaveStatus = () => {
@@ -17,7 +17,9 @@ const Quote = ({ currentQuestion, getRandomQuestion }) => {
         <h2>"{currentQuestion && currentQuestion.quote}"</h2>
       </div>
       <div className="button-container">
-        <button className="post-answer">{saveMessage}</button>
+        <button className="post-answer" onClick={() => {
+          saveCurrentQuote(currentQuestion);
+        }}>{saveMessage}</button>
         <button className="post-answer" onClick={() => {
           getRandomQuestion();
         }}>
