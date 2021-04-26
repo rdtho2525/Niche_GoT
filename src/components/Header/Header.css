@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Game of Thrones';
+  src: url('../../GoT.ttf');
+}
+
+header {
+  height: 11%;
+  border-bottom: 2px solid black;
+  text-align: center;
+  font-family: 'Game of Thrones';
+}
+
+.header-text {
+  height: 100%;
+  font-size: 3vh;
+  padding: .25em;
+  text-align: center;
+  margin-top: .25em;
+  letter-spacing: .25em;
+  line-height: 1.75em;
+}
