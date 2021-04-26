@@ -83,6 +83,13 @@ function App() {
     storedQuotes ? setSavedQuotes([...storedQuotes, quote]) : setSavedQuotes([quote]);
   }
 
+  const removeSavedQuote = (quote) => {
+    const storedQuotes = JSON.parse(localStorage.getItem('storedQuotes'));
+    const filteredQuotes = storedQuotes.filter(storedQuote => storedQuote.quote !== quote)
+    localStorage.setItem('storedQuotes', JSON.stringify(filteredQuotes))
+    setSavedQuotes([...filteredQuotes])
+  }
+
   useEffect(() => {
     getCharacters();
   }, []);
@@ -97,31 +104,33 @@ function App() {
   }, [])
 
   return (
-    <main>
-      {error && <h1 className="error-message">{error}</h1>}
-      <Switch>
-        <Route 
-          exact path="/saved-quotes"
-          render={() => <SavedQuote savedQuotes={savedQuotes}/>}
-        />
-        <Route 
-          exact path="/"
-          render={() => (
-            <>
-              <Quote 
-                currentQuestion={currentQuestion} 
-                validStatus={validStatus} 
-                saveCurrentQuote={saveCurrentQuote} 
-                getRandomQuestion={getRandomQuestion}
-              />
-              {feedback && <h2 className={'feedback'}>{feedback}</h2>}
-              {!!currentQuestion.answers && <Answers validateSelection={validateSelection} validStatus={validStatus} possibleAnswers={currentQuestion.answers}/>}
-            </>
-          )}
-        />
-      </Switch>
-      <Footer />
+    <>
+      <main>
+        {error && <h1 className="error-message">{error}</h1>}
+        <Switch>
+          <Route 
+            exact path="/saved-quotes"
+            render={() => <SavedQuote removeSavedQuote={removeSavedQuote} savedQuotes={savedQuotes}/>}
+          />
+          <Route 
+            exact path="/"
+            render={() => (
+              <>
+                <Quote 
+                  currentQuestion={currentQuestion} 
+                  validStatus={validStatus} 
+                  saveCurrentQuote={saveCurrentQuote} 
+                  getRandomQuestion={getRandomQuestion}
+                />
+                {feedback && <h2 className={'feedback'}>{feedback}</h2>}
+                {!!currentQuestion.answers && <Answers validateSelection={validateSelection} validStatus={validStatus} possibleAnswers={currentQuestion.answers}/>}
+              </>
+            )}
+          />
+        </Switch>
     </main>
+    <Footer />
+    </>
   );
 }
 
