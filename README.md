@@ -76,22 +76,18 @@ If you see `Compiled successfully!` in your terminal, the application is running
 
 #### Application Demo
 
-![demo-vid]()
+![demo-vid](public/demo.mov)
 
 #### Landing Page
 
-![landing-page]()
+![landing-page](public/landing-page.png)
 
-#### Movie Details
+#### Gameplay
 
-![trivia-page]()
+![trivia-page](public/trivia.png)
 
 #### Saved Quotes
-![saved-quotes]()
-
-#### Desktop View
-![mobile-landing page]()
-
+![saved-quotes](public/saved-quotes.png)
 
 ---
 ## Challenges
