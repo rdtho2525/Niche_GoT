@@ -14,10 +14,9 @@ const Answers = ({
     validStatus ? validStatus = '' : validStatus = 'validated';
   }
 
-  const renderedAnswers = possibleAnswers.map((answer, i) => {
+  const renderedAnswers = possibleAnswers.map((answer) => {
       return (
         <AnswerCard 
-          id={`${answer.answer}_${i}`} 
           validateSelection={validateSelection} 
           answer={answer}
         />
