@@ -8,9 +8,9 @@ const Footer = ({ getRandomQuestion }) => {
   return (
     <footer>
       <div className={"nav-links"}>
-        <Link to="/">Home</Link>
-        <Link to="/play" onClick={() => getRandomQuestion()}>Play</Link>
-        <Link to="/saved-quotes" className="saved-link">Saved Quotes</Link>
+        <Link to="/" id="home-link">Home</Link>
+        <Link to="/play" id="play-link" onClick={() => getRandomQuestion()}>Play</Link>
+        <Link to="/saved-quotes" id="saved-quotes-link" className="saved-link">Saved Quotes</Link>
       </div>
     </footer>
   )
