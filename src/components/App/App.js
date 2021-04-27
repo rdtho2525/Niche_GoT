@@ -15,7 +15,7 @@ import { shuffleCharacters } from '../../utilities.js';
 function App() {
   const [ characters, setCharacters ] = useState([]);
   const [ questions, setQuestions ] = useState([]);
-  const [ currentQuestion, setCurrentQuestion ] = useState('');
+  const [ currentQuestion, setCurrentQuestion ] = useState({});
   const [ feedback, setFeedback ] = useState('');
   const [ validStatus, setValidStatus ] = useState('');
   const [ savedQuotes, setSavedQuotes ] = useState([]);

@@ -1,4 +1,5 @@
 import React, { useEffect, useState} from 'react';
+import PropTypes from 'prop-types';
 import './AnswerCard.css';
 
 const AnswerCard = ({ 
@@ -30,3 +31,9 @@ const AnswerCard = ({
 }
 
 export default AnswerCard;
+
+AnswerCard.propTypes = { 
+  answer: PropTypes.object,
+  id: PropTypes.string,
+  validateSelection: PropTypes.func
+}
