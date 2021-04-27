@@ -12,7 +12,7 @@ const SavedQuote = ({ savedQuotes, removeSavedQuote }) => {
         <h2>"{quote.quote}"</h2>
         <aside>{credit}</aside>
         <div className="remove-btn-container">
-          <button onClick={() => removeSavedQuote(quote.quote)} className="remove-button">Remove</button>
+          <button onClick={() => removeSavedQuote(quote)} className="remove-button">Remove</button>
         </div>
       </section>
     )
