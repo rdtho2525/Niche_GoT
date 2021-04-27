@@ -19,7 +19,7 @@ const AnswerCard = ({
  
   return (
     <button 
-      key={id} 
+      key={Date.now()}
       className={`answer ${selectedStatus} ${answer.isCorrect} `} 
       onClick={() => {
       validateSelection(answer.isCorrect)
