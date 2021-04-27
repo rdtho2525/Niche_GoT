@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+# I Drink and I Know Quotes: A Game of Thrones Quote Trivia Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A [Front-End Project](https://github.com/rdtho2525/Niche_GoT) by [Reggie Thompson](https://github.com/rdtho2525).
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+1. [Overview](#overview)
+2. [Planning Resources](#planning-resources)
+3. [Set Up](#setup-instructions)
+4. [Learning Goals](#learning-goals)
+5. [Technologies](#technologies)
+6. [Features](#features)
+7. [Challenges](#challenges)
+8. [Wins](#wins)
+9. [Future Iterations](#future-iterations)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Overview
 
-### `npm test`
+_Niche Audience_ is the final solo project of the Module 3 at [Turing School of Software and Design](https://turing.io/). The purpose is to demonstrate an understanding and mastery of all the technologies learned over the course of the module, including: React, React-Router, Asynchronous JavaScript, and end-to-end testing with Cypress.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The intent behind _I Drink and I Know Quotes_ is to serve users who are tremendous fans for the HBO series _Game of Thrones_.  This app tests the users' knowledge of some of the most well-known quotes from the series.  The game itself plays much like a multiple choice quiz.  When selecting the "play" button in the bottom center of the UI, the user will be shown a single quote and four possible characters to attribute said quote.  Upon making a selection, the user will be given immediate feedback on whether or not the answer they provide is correct.  Users also have the option to skip to the next quote or save the current quote of their choosing, a list of which can be viewed in the "Saved Quotes" tab on the bottom right.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Planning Resources
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* [GitHub Project Board](https://github.com/rdtho2525/Niche_GoT/projects)
+* [Miro Board - Wireframes and Component Structure](https://miro.com/app/board/o9J_lVSt2Q0=/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Setup Instructions
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Clone down this repository to your local machine:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+git clone git@github.com:rdtho2525/Niche_GoT.git
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Then install the library dependencies by running:
 
-## Learn More
+```
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To start application, run:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+npm start
+```
 
-### Code Splitting
+If you see `Compiled successfully!` in your terminal, the application is running and the app can be veiwed at `http://localhost:3000/` in your browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Learning Goals
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* Solidify React architecture and fundamentals
+* Conduct throrough end-to-end testing
+* Create a multi-page UX using Router
+* Create personas and user stories to describe your target audience
+* Work within constraints to deliver a product for your niche audience, which provides a unique service
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Technologies
 
-### Advanced Configuration
+<img alt="React" src="https://img.shields.io/badge/react%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB"/>
+<img alt="JavaScript" src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/>
+<img alt="Git" src="https://img.shields.io/badge/git%20-%23F05033.svg?&style=for-the-badge&logo=git&logoColor=white"/>
+<img alt="HTML5" src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"/>
+<img alt="CSS3" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/>
+<img alt="Cypress" src='https://img.shields.io/badge/cypress%20-%23404d59.svg?&style=for-the-badge&logo=Cypress&logoColor=white'/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
+## Features
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Application Demo
 
-### `npm run build` fails to minify
+![demo-vid]()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Landing Page
+
+![landing-page]()
+
+#### Movie Details
+
+![trivia-page]()
+
+#### Saved Quotes
+![saved-quotes]()
+
+#### Desktop View
+![mobile-landing page]()
+
+
+---
+## Challenges
+
+* Leveraging the React hook `useEffect` to timely format data in a way that's usable for a quiz app
+* Developing the logic behind providing immediate feedback in gameplay upon user input
+* Sudden issues with the API server from which the app requests data
+
+
+---
+## Wins
+
+* Recognizing just how much I've learned over the course of module 3
+
+---
+## Future Iterations
+
+* Adding a short timer for each prompt
+* Creating more creative and dynamic ways to provide immediate feedback
+* Tracking the user's current score
+* Implementing sorting and filtering capabilites in the "Saved Quotes" section
