@@ -1,4 +1,5 @@
-.saved-quote {
+.saved-quote,
+.error-message {
   height: 25%;
   margin-top: 12px;
   padding: .75em .5em;
