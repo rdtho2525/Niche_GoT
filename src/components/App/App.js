@@ -4,6 +4,7 @@ import fetchCharacters from '../../api.js';
 import { getRandomIndex } from '../../utilities.js';
 import Quote from '../Quotes/Quotes.js'
 import Answers from '../Answers/Answers.js';
+import Home from '../Home/Home.js';
 import Header from '../Header/Header.js';
 import Footer from '../Footer/Footer.js';
 import SavedQuote from '../SavedQuote/SavedQuote.js';
@@ -109,6 +110,7 @@ function App() {
       <main>
         {error && <h1 className="error-message">{error}</h1>}
         <Switch>
+          <Route exact path="/" render={() => <Home />}/>
           <Route 
             exact path="/saved-quotes"
             render={() => <SavedQuote removeSavedQuote={removeSavedQuote} savedQuotes={savedQuotes}/>}
