@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Jon Snow",
+    "slug": "jon",
+    "house": {
+        "slug": "stark",
+        "name": "House Stark of Winterfell"
+    },
+    "quotes": ["If I fall, don't bring me back."]
+  },
+  {
+    "name": "Sansa Stark",
+    "slug": "sansa",
+    "house": {
+        "slug": "stark",
+        "name": "House Stark of Winterfell"
+    },
+    "quotes": ["I hate the king more than any of them."]
+  },
+  {
+    "name": "Eddard \"Ned\" Stark",
+    "slug": "ned",
+    "house": {
+        "slug": "stark",
+        "name": "House Stark of Winterfell"
+    },
+    "quotes": ["The man who passes the sentence should swing the sword."]
+  },
+  {
+    "name": "Jaime Lannister",
+    "slug": "jaime",
+    "house": {
+        "slug": "lannister",
+        "name": "House Lannister of Casterly Rock"
+    },
+    "quotes": ["The things I do for love."]
+  }
+]
