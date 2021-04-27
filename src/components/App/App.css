@@ -12,11 +12,47 @@ body {
 }
 
 main {
-  height: 92%;
+  height: 76%;
+  background-color: hsla(0, 0%, 0%, .6);
   overflow: auto;
+  flex: 1 0 auto;
+}
+
+main,
+button {
+  font-family: 'Garamond';
+}
+
+button {
+  cursor: pointer;
+}
+
+header, 
+footer {
+  font-family: 'Game of Thrones';
 }
 
 .feedback {
   margin-top: 5px;
+  color: seashell;
   text-align: center;
 }
+
+.center-piece {
+  height: 100%;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 1000px) {
+  main {
+    display: flex;
+    flex-direction: column;  
+  }
+
+  .center-piece {
+    min-widtH: 30%;
+    max-width: 30%;
+  }
+}
+
+

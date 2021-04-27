@@ -1,16 +1,35 @@
 import React, { useState } from 'react';
 import './Quotes.css';
 
-const Quote = ({ currentQuestion, getRandomQuestion, saveCurrentQuote }) => {
-  const [ saveMessage, setSaveMessage ] = useState('Save this quote');
+const Quote = ({ 
+  currentQuestion, 
+  getRandomQuestion, 
+  saveCurrentQuote, 
+  removeSavedQuote 
+}) => {
+  const [ isSaved, setIsSaved ] = useState(false)
+  // const [ saveMessage, setSaveMessage ] = useState('Save this quote');
 
-  // const checkSaveStatus = () => {
-  //   if (isSaved) {
-  //     setSaveMessage('Saved ✔')
-  //   } else {
-  //     setSaveMessage('Save this quote ☐')
-  //   }
-  // }
+  const toggleSavedStatus = () => {
+    // currentQuestion.isSaved ? setSaveMessage('Saved') : setSaveMessage('Save this quote');
+    // isSaved ? setIsSaved(false) : setIsSaved(true);
+    if (!isSaved) {
+      saveCurrentQuote(currentQuestion)
+      setIsSaved(true)
+      console.log(isSaved)
+    } else {
+      removeSavedQuote()
+      setIsSaved(false)
+      console.log(isSaved)
+    }
+  }
+
+  const checkSavedStatus = () => {
+    let message = '';
+    isSaved ? message = 'Saved' : message = 'Save this quote';
+    return message;
+  }
+
   return (
     <section className="quote-section">
       <div className="quote-container">
@@ -18,8 +37,9 @@ const Quote = ({ currentQuestion, getRandomQuestion, saveCurrentQuote }) => {
       </div>
       <div className="button-container">
         <button className="post-answer" onClick={() => {
-          saveCurrentQuote(currentQuestion);
-        }}>{saveMessage}</button>
+          // saveCurrentQuote(currentQuestion);
+          toggleSavedStatus();
+        }}>{checkSavedStatus()}</button>
         <button className="post-answer" onClick={() => {
           getRandomQuestion();
         }}>

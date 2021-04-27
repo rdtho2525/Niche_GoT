@@ -1,8 +1,42 @@
 footer {
+  height: 10%;
   display: flex;
+  border-top: 2px solid black;
+  justify-content: space-around;
+  flex-shrink: 0;
+}
+
+.nav-links {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 a {
   height: 50px;
-  width: 50px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+}
+
+a:hover {
+  color: grey;
+}
+
+.saved-link {
+  margin-top: 6px;
+  line-height: 1.5em;
+}
+
+@media only screen and (min-width: 1000px) {
+  footer {
+    justify-content: center;
+  }
+  .nav-links {
+    max-width: 25%;
+  }
 }

@@ -1,15 +1,21 @@
-.quote-section {
-  height: 20%;
+.quote-section,
+.saved-quote {
+  height: 30%;
   width: 95%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  background-color: white;
   border: 1px solid black;
   margin: 0 auto;
   margin-top: 10px;
   border-radius: 15px;
   text-align: center;
+}
+
+h2 {
+  font-style: italic;
 }
 
 .quote-container {
@@ -29,7 +35,21 @@ h2 {
   display: flex;
   justify-content: space-between;
   position: relative;
-  margin-bottom: 5%;
-  /* display: none; */
+  margin-bottom: 2%;
+}
+
+.post-answer {
+  background-color: rgba(0, 0, 0, 0);
+  margin-bottom: 1px;
+  border: none;
+  /* border-bottom: 1px solid black; */
+  padding: .25em;
+}
+
+.post-answer:hover {
+  /* border: 1px solid black;; */
+  border-bottom: 1px solid grey;
+  margin: 0;
+  color: grey;
 }
 

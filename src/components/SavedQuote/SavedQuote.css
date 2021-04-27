@@ -1,3 +1,9 @@
+.saved-quote {
+  height: 25%;
+  margin-top: 12px;
+  padding: .75em .5em;
+}
+
 .remove-btn-container {
   width: 100%;
   display: flex;
@@ -5,6 +11,15 @@
 }
 
 .remove-button {
+  background-color: rgba(0, 0, 0, 0);
   margin-right: 15px;
+  margin-bottom: 6px;
+  border: none;
+}
+
+.remove-button:hover {
+  /* border: 1px solid black;; */
+  border-bottom: 1px solid grey;
   margin-bottom: 5px;
+  color: grey;
 }
