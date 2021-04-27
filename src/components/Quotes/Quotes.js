@@ -32,7 +32,7 @@ const Quote = ({
   }
 
   return (
-    <section className="quote-section">
+    <section key={Date.now()} className="quote-section">
       <div className="quote-container">
         <h2>"{currentQuestion && currentQuestion.quote}"</h2>
       </div>
