@@ -24,9 +24,10 @@ function App() {
   const getCharacters = async () => {
     try {
       const allCharacters = await fetchCharacters();
+      console.log(allCharacters)
       setCharacters(allCharacters)
     } catch(error) {
-      setError(error);
+      setError('We\'re sorry, an error has occurred. Please try again later.');
       console.log(error)
     }
   }
@@ -110,7 +111,7 @@ function App() {
     <>
       <Header />
       <main>
-        {error && <h1 className="error-message">{error}</h1>}
+        {error && <h1 className="error-message saved-quote">{error}</h1>}
         <Switch>
           <Route exact path="/" render={() => <Home />}/>
           <section className="center-piece">
