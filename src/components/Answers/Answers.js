@@ -14,10 +14,10 @@ const Answers = ({
     validStatus ? validStatus = '' : validStatus = 'validated';
   }
 
-  const renderedAnswers = possibleAnswers.map((answer) => {
+  const renderedAnswers = possibleAnswers.map((answer, i) => {
       return (
         <AnswerCard
-          key={Date.now()} 
+          key={`${answer}-${i}`} 
           validateSelection={validateSelection} 
           answer={answer}
         />
