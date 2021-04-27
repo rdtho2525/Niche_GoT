@@ -111,30 +111,32 @@ function App() {
         {error && <h1 className="error-message">{error}</h1>}
         <Switch>
           <Route exact path="/" render={() => <Home />}/>
-          <Route 
-            exact path="/saved-quotes"
-            render={() => <SavedQuote removeSavedQuote={removeSavedQuote} savedQuotes={savedQuotes}/>}
-          />
-          <Route 
-            exact path="/play"
-            render={() => (
-              <>
-                <Quote 
-                  currentQuestion={currentQuestion} 
-                  validStatus={validStatus} 
-                  saveCurrentQuote={saveCurrentQuote} 
-                  getRandomQuestion={getRandomQuestion}
-                />
-                {feedback && <h2 className={'feedback'}>{feedback}</h2>}
-                {!!currentQuestion.answers && 
-                  <Answers 
-                    validateSelection={validateSelection} 
+          <section className="center-piece">
+            <Route 
+              exact path="/saved-quotes"
+              render={() => <SavedQuote removeSavedQuote={removeSavedQuote} savedQuotes={savedQuotes}/>}
+            />
+            <Route 
+              exact path="/play"
+              render={() => (
+                <>
+                  <Quote 
+                    currentQuestion={currentQuestion} 
                     validStatus={validStatus} 
-                    possibleAnswers={currentQuestion.answers}
-                  />}
-              </>
-            )}
-          />
+                    saveCurrentQuote={saveCurrentQuote} 
+                    getRandomQuestion={getRandomQuestion}
+                  />
+                  {feedback && <h2 className={'feedback'}>{feedback}</h2>}
+                  {!!currentQuestion.answers && 
+                    <Answers 
+                      validateSelection={validateSelection} 
+                      validStatus={validStatus} 
+                      possibleAnswers={currentQuestion.answers}
+                    />}
+                </>
+              )}
+            />
+          </section>
         </Switch>
     </main>
     <Footer getRandomQuestion={getRandomQuestion} />

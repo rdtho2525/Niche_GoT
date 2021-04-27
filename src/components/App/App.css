@@ -1,5 +1,5 @@
 * {
-  /* border: 1px solid red; */
+  border: 1px solid red;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -30,5 +30,25 @@ footer {
 
 .feedback {
   margin-top: 5px;
+  color: seashell;
   text-align: center;
 }
+
+.center-piece {
+  height: 100%;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 1000px) {
+  main {
+    display: flex;
+    flex-direction: column;  
+  }
+
+  .center-piece {
+    min-widtH: 30%;
+    max-width: 30%;
+  }
+}
+
+
