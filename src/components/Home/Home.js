@@ -6,7 +6,6 @@ const Home = () => {
 
   return (
     <section className="home">
-      {console.log(sigil.default)}
       <img className="home-img" src={sigil.default}/>
     </section>
   )
