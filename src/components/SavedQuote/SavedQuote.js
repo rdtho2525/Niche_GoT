@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../Quotes/Quotes.css'
 import './SavedQuote.css';
 
@@ -26,3 +27,8 @@ const SavedQuote = ({ savedQuotes, removeSavedQuote }) => {
 }
 
 export default SavedQuote;
+
+SavedQuote.propTypes = { 
+  savedQuotes: PropTypes.array,
+  removeSavedQuote: PropTypes.func
+}

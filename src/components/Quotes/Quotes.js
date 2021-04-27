@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import './Quotes.css';
 
 const Quote = ({ 
@@ -51,3 +52,10 @@ const Quote = ({
 }
 
 export default Quote;
+
+Quote.propTypes = { 
+  currentQuestion: PropTypes.object,
+  getRandomQuestion: PropTypes.func,
+  saveCurrentQuote: PropTypes.func,
+  removeSavedQuote: PropTypes.func
+}

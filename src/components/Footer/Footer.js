@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 import './Footer.css'
 
@@ -16,3 +17,7 @@ const Footer = ({ getRandomQuestion }) => {
 }
 
 export default Footer;
+
+Footer.propTypes = { 
+  getRandomQuestion: PropTypes.func,
+}

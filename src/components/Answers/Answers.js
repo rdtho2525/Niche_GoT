@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import AnswerCard from '../AnswerCard/AnswerCard.js';
+import PropTypes from 'prop-types';
+
 import './Answers.css';
 
 const Answers = ({ 
@@ -33,3 +35,9 @@ const Answers = ({
 }
 
 export default Answers;
+
+Answers.propTypes = { 
+  possibleAnswers: PropTypes.array,
+  validateSelection: PropTypes.func,
+  validStatus: PropTypes.string
+}
