@@ -16,6 +16,7 @@
   margin-right: 15px;
   margin-bottom: 6px;
   border: none;
+  border-bottom: 1px solid black;
 }
 
 .remove-button:hover {
