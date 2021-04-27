@@ -9,11 +9,8 @@ const Quote = ({
   removeSavedQuote 
 }) => {
   const [ isSaved, setIsSaved ] = useState(false)
-  // const [ saveMessage, setSaveMessage ] = useState('Save this quote');
 
   const toggleSavedStatus = () => {
-    // currentQuestion.isSaved ? setSaveMessage('Saved') : setSaveMessage('Save this quote');
-    // isSaved ? setIsSaved(false) : setIsSaved(true);
     if (!isSaved) {
       saveCurrentQuote(currentQuestion)
       setIsSaved(true)
@@ -37,11 +34,10 @@ const Quote = ({
         <h2>"{currentQuestion && currentQuestion.quote}"</h2>
       </div>
       <div className="button-container">
-        <button className="post-answer" onClick={() => {
-          // saveCurrentQuote(currentQuestion);
+        <button className="post-answer save" onClick={() => {
           toggleSavedStatus();
         }}>{checkSavedStatus()}</button>
-        <button className="post-answer" onClick={() => {
+        <button className="post-answer next" onClick={() => {
           getRandomQuestion();
         }}>
           Next quote ⇨

@@ -12,6 +12,7 @@
 }
 
 .validated > button {
+  cursor: not-allowed;
   pointer-events: none;
 }
 
