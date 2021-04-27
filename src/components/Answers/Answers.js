@@ -16,7 +16,8 @@ const Answers = ({
 
   const renderedAnswers = possibleAnswers.map((answer) => {
       return (
-        <AnswerCard 
+        <AnswerCard
+          key={Date.now()} 
           validateSelection={validateSelection} 
           answer={answer}
         />
