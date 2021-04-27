@@ -18,7 +18,13 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: black;
   text-align: center;
+  text-decoration: none;
+}
+
+a:hover {
+  color: grey;
 }
 
 .saved-link {

@@ -11,6 +11,15 @@
 }
 
 .remove-button {
+  background-color: rgba(0, 0, 0, 0);
   margin-right: 15px;
+  margin-bottom: 6px;
+  border: none;
+}
+
+.remove-button:hover {
+  /* border: 1px solid black;; */
+  border-bottom: 1px solid grey;
   margin-bottom: 5px;
+  color: grey;
 }

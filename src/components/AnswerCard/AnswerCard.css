@@ -6,6 +6,11 @@
   font-size: 4vh;
 }
 
+.answer:hover {
+  cursor: pointer;
+  background-color: slategrey;
+}
+
 .validated > button {
   pointer-events: none;
 }
