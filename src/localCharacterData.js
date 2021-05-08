@@ -66,7 +66,13 @@ export const characterData = [
       slug: "lannister",
       name: "House Lannister of Casterly Rock"
     },
-    quotes: []
+    quotes: [
+      "If I wanted to kill you, do you think I'd let a wooden door stop me?",
+      "Power is power.",
+      "Everyone who isn't us is an enemy.",
+      "Look at me. Look at my face. It's the last thing you'll see before you die.",
+      "When you play the game of thrones, you win or you die."
+    ]
   },
   {
     name: "Arya Stark",
@@ -76,11 +82,11 @@ export const characterData = [
       name: "House Stark of Winterfell"
     },
     quotes: [
-      "If I wanted to kill you, do you think I'd let a wooden door stop me?",
-      "Power is power.",
-      "Everyone who isn't us is an enemy.",
-      "Look at me. Look at my face. It's the last thing you'll see before you die.",
-      "When you play the game of thrones, you win or you die."
+      "Nothing isn’t better or worse than anything. Nothing is just nothing.",
+      "I know Death. He's got many faces. I look forward to seeing this one.",
+      "A girl has no name.",
+      "Tell them the North remembers.",
+      "Not today."
     ]
   },
   {
